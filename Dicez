@@ -1,0 +1,154 @@
+import java.lang.Math;
+
+public class Dicez 
+
+{
+
+	int dice1 = 0;
+
+	int dice2 = 0;
+
+	int dice3 = 0;
+
+	int diceTotal;
+
+
+
+	public void Throw(int td)
+
+	{
+
+		if (td == 1)
+
+			dice1 = 1 + (int)(Math.random() * 6);
+
+
+
+		else if (td == 2)
+
+		{
+
+			dice1 = 1 + (int)(Math.random() * 6);
+
+			dice2 = 1 + (int)(Math.random() * 6);
+
+		}
+
+
+
+		else 
+
+		{
+
+			dice1 = 1 + (int)(Math.random() * 6);
+
+			dice2 = 1 + (int)(Math.random() * 6);
+
+			dice3 = 1 + (int)(Math.random() * 6);
+
+		}
+
+	}
+
+
+
+	public void Throw(int dices, int bounces)
+
+	{
+
+		if (dices == 1)
+
+		{
+
+			dice1 = 1 + (int)(Math.random() * 6);
+
+
+
+			if (bounces < 1)
+
+			{
+
+				for (int count = 0; count < bounces; count++)
+
+					dice1 = (dice1 + 1 + (int)(Math.random() * 6)) / bounces;
+
+			}
+
+		}
+
+
+
+		else if (dices == 2)
+
+		{
+
+			dice1 = 1 + (int)(Math.random() * 6);
+
+			dice2 = 1 + (int)(Math.random() * 6);
+
+
+
+			if (bounces < 1)
+
+			{
+
+				for (int count = 0; count < bounces; count++)
+
+				{
+
+					dice1 = (dice1 + 1 + (int)(Math.random() * 6)) / bounces;
+
+					dice2 = (dice2 + 1 + (int)(Math.random() * 6)) / bounces;
+
+				}
+
+			}
+
+		}
+
+
+
+		else 
+
+		{
+
+			dice1 = 1 + (int)(Math.random() * 6);
+
+			dice2 = 1 + (int)(Math.random() * 6);
+
+			dice3 = 1 + (int)(Math.random() * 6);
+
+			
+
+			for (int count = 0; count < bounces; count++)
+
+			{
+
+				dice1 = (dice1 + 1 + (int)(Math.random() * 6)) / bounces;
+
+				dice2 = (dice2 + 1 + (int)(Math.random() * 6)) / bounces;
+
+				dice3 = (dice3 + 1 + (int)(Math.random() * 6)) / bounces;
+
+			}
+
+		}
+
+	}
+
+
+
+	public int Value(int...is)
+
+	{
+
+		diceTotal = this.dice1 + this.dice2 + this.dice3;
+
+
+
+		return diceTotal;
+
+	}
+
+}
+
