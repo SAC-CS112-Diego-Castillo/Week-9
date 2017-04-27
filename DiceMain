@@ -1,0 +1,65 @@
+import javax.swing.JOptionPane;
+
+
+
+public class DiceMain 
+
+{
+
+	public static void main(String[] args)
+
+	{
+
+		boolean userError = false;
+
+		boolean iLoop = true;
+
+		int totalDice;
+
+
+
+		while (iLoop == true)
+
+		{
+
+			do
+
+			{
+
+				userError = false;
+
+				totalDice = Integer.parseInt(JOptionPane.showInputDialog("Choose to roll 1, 2, or 3 dice: "));
+
+
+
+				if ((totalDice < 1) || (totalDice > 3))
+
+				{
+
+					JOptionPane.showMessageDialog(null,  "Invalid, try again...");
+
+					userError = true;
+
+				}
+
+			}while (userError == true);
+
+
+
+			Dicez userRoll = new Dicez();
+
+
+
+			userRoll.Throw(totalDice);
+
+
+
+			JOptionPane.showMessageDialog(null, String.format("\nYou rolled a %d, %d, %d, for a total of %d", userRoll.dice1, userRoll.dice2, userRoll.dice3, userRoll.Value()));
+
+
+
+		}
+
+	}
+
+}
